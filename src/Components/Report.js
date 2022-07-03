@@ -62,7 +62,7 @@ const Report = ({ header, description, salaryVal }) => {
                     fontWeight: 600,
                   }}
                 >
-                  Enter your salary in INR
+                  Enter your salary
                 </FormControl.Label>
                 <Box alignItems="flex-start" my={"5"}>
                   <Input
@@ -84,7 +84,7 @@ const Report = ({ header, description, salaryVal }) => {
                         Save
                       </Button>
                     }
-                    placeholder="Enter Salary"
+                    placeholder="Enter Salary in INR"
                     onChange={(event)=>{setSalary(event.target.value)}}
                   />
                 </Box>

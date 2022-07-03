@@ -7,6 +7,8 @@ import SignUp from './Signup';
 import Login from './Login';
 import Investments from './Investments'
 import SeeReport from "./SeeReport";
+import AddExpenses from "./AddExpenses";
+import AllExpenses from "./AllExpenses";
 
 export default function App() {
   return (
@@ -18,6 +20,10 @@ export default function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/investments" element={<Investments />}></Route>
             <Route path="/report" element={<SeeReport />}></Route>
+            <Route path="/allExpense" element={<AllExpenses />}></Route>
+
+            <Route path="/addExpense" element={<AddExpenses />}></Route>
+
 
 
 

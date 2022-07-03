@@ -13,12 +13,16 @@ import Navigation from "./Navigation";
 import Report from "./Report";
 
 export default function Investments() {
+    const navigate = useNavigate();
+    const openAllExpense =()=>{
+        navigate('/allExpense');
+    }
   return (
     <NativeBaseProvider>
-      <Navigation />
+        <Navigation />
       <Box>
         <HStack space={2} mt={"-53px"} alignSelf="center">
-          <Button colorScheme="emerald" variant="link">
+          <Button onPress={openAllExpense} colorScheme="emerald" variant="link">
             Add expenses
           </Button>
           <Button colorScheme="emerald" variant="link">

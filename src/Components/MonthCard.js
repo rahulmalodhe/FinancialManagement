@@ -111,7 +111,7 @@ export default function MonthCard() {
             fontSize={"md"}
             color={"white"}
           >
-            Click here to View your Report{" "}
+            Click here to View or edit your Personal finance
           </Text>
         </Box>
         ;

@@ -27,8 +27,11 @@ export default function SeeReport() {
   }, []);
   return (
     <NativeBaseProvider>
-      <Box >
-        <Text color={"white"}> Your salary is <Text color="emerald.400">{amt}</Text></Text>
+        <Box>
+            <Text my="20px" fontWeight="600" alignSelf= "center" fontSize="5xl" color={"emerald.400"}>Report Card</Text>
+        </Box>
+      <Box w="95%" bg="#242B2E" borderRadius={"lg"} alignSelf="center" p="10">
+        <Text fontSize={"xl"} color={"white"}> Your salary for the current month is <Text position={"absolute"} right="60px" color="emerald.400">{amt}</Text></Text>
       </Box>
         
     </NativeBaseProvider>

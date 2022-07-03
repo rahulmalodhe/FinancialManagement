@@ -1,12 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Navigation from "./Navigation";
 
 import { NativeBaseProvider, Box, HStack, Button, Text, Input, Heading, Link, VStack, FormControl } from "native-base";
 
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth } from "../firebase"
 
 export default function SignUp() {
@@ -16,20 +16,27 @@ export default function SignUp() {
 
     const login = () => {
         signInWithEmailAndPassword(auth, email, password)
-            .then(auth => { navigate("/home") })
+            .then(auth => { 
+                const user = auth.user;
+                console.log("user")
+                navigate("/home") 
+            })
             .catch(error => console.log(error))
 
     }
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            console.log(user)
+            if (user) {
+               navigate("/home")
+            }
 
-    const register = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(auth => { navigate("/home") })
-            .catch(error => console.log(error))
-    }
+        });
 
+        return unsubscribe
+    }, [])
     return (
         <NativeBaseProvider>
-            <Navigation />
             <Box safeArea flex={1} p={2} w="30%" mx="auto" my="50px">
                 <Heading size="lg" color="emerald.400">
                     Welcome
