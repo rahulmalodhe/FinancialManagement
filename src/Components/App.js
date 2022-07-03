@@ -21,12 +21,7 @@ export default function App() {
             <Route path="/investments" element={<Investments />}></Route>
             <Route path="/report" element={<SeeReport />}></Route>
             <Route path="/allExpense" element={<AllExpenses />}></Route>
-
             <Route path="/addExpense" element={<AddExpenses />}></Route>
-
-
-
-
           </Routes>
         </BrowserRouter>
     </NativeBaseProvider>

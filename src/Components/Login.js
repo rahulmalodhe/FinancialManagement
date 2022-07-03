@@ -18,7 +18,6 @@ export default function SignUp() {
         signInWithEmailAndPassword(auth, email, password)
             .then(auth => { 
                 const user = auth.user;
-                console.log("user")
                 navigate("/home") 
             })
             .catch(error => console.log(error))
@@ -37,6 +36,7 @@ export default function SignUp() {
     }, [])
     return (
         <NativeBaseProvider>
+            <Navigation />
             <Box safeArea flex={1} p={2} w="30%" mx="auto" my="50px">
                 <Heading size="lg" color="emerald.400">
                     Welcome

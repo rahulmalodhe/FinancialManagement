@@ -22,7 +22,7 @@ export default function AddExpenses() {
             createdAt: new Date(),
             completed: false,
         });
-        navigate('/addExpense')
+        navigate('/allExpense')
     };
 
     return (
@@ -50,13 +50,13 @@ export default function AddExpenses() {
                     onSubmitEditing={() => { }}
 
                     placeholder="Description" />
-                <Button my={5} mx={"auto"} bg={"emerald.400"}
+                <Button my={5} bg={"emerald.400"}
                     _text={{ color: 'white' }}
                     name='Press' onPress={handleSubmit} w={{
                         base: "55%",
                         md: "25%"
 
-                    }} textAlign={"center"}> Enter</Button>
+                    }}> Enter</Button>
 
             </Box>
 

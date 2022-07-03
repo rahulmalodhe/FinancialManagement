@@ -2,8 +2,6 @@ import React from "react";
 import {
   Box,
   NativeBaseProvider,
-  ZStack,
-  Center,
   Button,
   HStack,
 } from "native-base";

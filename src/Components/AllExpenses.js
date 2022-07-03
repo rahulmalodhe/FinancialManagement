@@ -57,11 +57,13 @@ export default function AllExpenses() {
     await deleteDoc(doc(db, "expenses", id));
   };
 
-  const renderItem = () => {
+  const renderItem = ({item}) => {
     return (
       <Pressable
-        p={5}
-        m={2}
+        w={"30%"}
+        p={3}
+        mx={"auto"}
+        my={3}
         backgroundColor={"green.50"}
         borderRadius={20}
         style={{
@@ -72,7 +74,7 @@ export default function AllExpenses() {
           elevation: 5,
         }}
       >
-        <Text>{expenses}</Text>
+        <Text>{item.expenses}</Text>
       </Pressable>
     );
   };
@@ -96,39 +98,8 @@ export default function AllExpenses() {
       >
         Enter
       </Button>
-      <Pressable
-        p={5}
-        m={2}
-        backgroundColor={"green.50"}
-        borderRadius={20}
-        style={{
-          shadowColor: "#1AA37A",
-          shadowOffset: { width: 0, height: 1 },
-          shadowOpacity: 0.8,
-          shadowRadius: 2,
-          elevation: 5,
-        }}
-      >
-        <Text>{expenses}</Text>
-      </Pressable>
-
       <Box flex={1} m={5}>
         <Heading>Your Expenses</Heading>
-
-        <Button
-          mt="5"
-          backgroundColor="#1AA37A"
-          _text={{ color: "black" }}
-          name="Press"
-          onPress={() => navigate("/addExpense")}
-          w={{
-            base: "55%",
-            md: "25%",
-          }}
-        >
-          {" "}
-          Add
-        </Button>
       </Box>
       <FlatList
         mt={2}

@@ -7,20 +7,15 @@ import Navigation from "./Navigation";
 import {
   NativeBaseProvider,
   Box,
-  HStack,
   Button,
-  Text,
   Input,
   Heading,
-  Link,
   VStack,
   FormControl,
 } from "native-base";
 
 import {
-  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -30,19 +25,10 @@ export default function SignUp() {
   const [password, setPassword] = useState(" ");
   const [confirmPassword, setConfirmPassword] = useState(" ");
 
-  const login = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((auth) => {
-        navigate("/home");
-      })
-      .catch((error) => console.log(error));
-  };
-
   const register = () => {
-    console.log("the register btn is clicked");
     createUserWithEmailAndPassword(auth, email, password)
       .then((auth) => {
-        navigate("/home");
+        navigate("/login");
       })
       .catch((error) => console.log(error));
   };
@@ -93,10 +79,10 @@ export default function SignUp() {
             <Input
               my={5}
               borderColor="white"
-              keyboardType="numeric"
               h="50px"
               placeholderTextColor="white"
               placeholder="Password"
+              _text={{color:"white"}}
               onChange={(event) => setPassword(event.target.value)}
               type="password"
         

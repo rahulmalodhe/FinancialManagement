@@ -18,13 +18,14 @@ export default function Home() {
 
     // signout functionality
     const signOutClick = () => {
+        console.log("signout")
         auth.signOut();
         navigate("/login");
     }
     return (
         <NativeBaseProvider>
             <Navigation />
-            <Button alignSelf="flex-end" my={"-52px"} marginRight="15px" w={"100px"} onPress={signOutClick} size="sm" variant="outline" colorScheme="primary" _text={{ color: "emerald.500", fontSize: "14px" }}>Sign Out</Button>
+            <Button style={{cursor:"pointer", zIndex:1000}} alignSelf="flex-end" my={"-52px"} marginRight="15px" w={"100px"} onPress={signOutClick} size="sm" variant="outline" colorScheme="primary" _text={{ color: "emerald.500", fontSize: "14px" }}>Sign Out</Button>
             <Box marginBottom={"50px"}>
                 <Heading fontSize="5xl" marginTop={"100px"} textAlign="center">
                     <Text color={"white"}>Welcome to<Text color="emerald.500"> Finance Management</Text></Text>
