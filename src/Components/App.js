@@ -6,6 +6,7 @@ import Home from "./Home";
 import SignUp from './Signup';
 import Login from './Login';
 import Investments from './Investments'
+import SeeReport from "./SeeReport";
 
 export default function App() {
   return (
@@ -16,6 +17,9 @@ export default function App() {
             <Route path="/home" element={<Home />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/investments" element={<Investments />}></Route>
+            <Route path="/report" element={<SeeReport />}></Route>
+
+
 
           </Routes>
         </BrowserRouter>

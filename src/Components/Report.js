@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React  from "react";
+import { useState, useEffect} from "react";
 import {
   Box,
   NativeBaseProvider,
@@ -11,17 +11,26 @@ import {
   Button,
   FormControl,
   InputRightElement,
+  Alert,
 } from "native-base";
 import { useNavigate } from "react-router-dom";
 import Navigation from "./Navigation";
 
-const Report = ({ header, description }) => {
-  const [salary, setSalary] = useState("");
-  const [show, setShow] = React.useState(false);
+const Report = ({ header, description, salaryVal }) => {
+  const [salary, setSalary] = useState([]);
+  console.log("this is salary", salary )
+  const navigate = useNavigate();
 
   const handleClickSave = () => {
-    
+    console.log("this is clcik save")
+    console.log("this is salary", salary )
+    navigate("/report")
+        
   }
+  useEffect(() => {
+    localStorage.setItem('salary', JSON.stringify(salary));
+  }, [salary]);
+
   return (
     <NativeBaseProvider>
       <Box m={"10"} alignSelf="center">
@@ -69,7 +78,8 @@ const Report = ({ header, description }) => {
                         rounded="none"
                         w="1/6"
                         h="full"
-                        onPress={handleClickSave}
+                        onPress
+                        ={handleClickSave}
                       >
                         Save
                       </Button>
